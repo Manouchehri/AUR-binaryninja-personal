@@ -2,16 +2,27 @@
 # Contributor: Alex Palaistras <alex+archlinux@deuill.org>
 # Contributor: Elen Eisendle
 
-_pkgname=binaryninja
-pkgname="${_pkgname}-personal"
-_branch=stable
+_pkgname="binaryninja"
+_branch="stable"
+_edition="personal"
+pkgname="${_pkgname}-${_edition}"
+[[ "${_branch}" != "stable" ]] && pkgname="${pkgname}-${_branch}"
 pkgdesc="Binary Ninja is a binary multi-tool and reversing platform"
 url="https://binary.ninja"
 license=('custom:Binary Ninja License Agreement')
 arch=('x86_64')
 conflicts=("${_pkgname}")
 provides=("${_pkgname}")
-
+pkgver=1.1.922
+pkgrel=2 # reset after new release, and .srcinfo
+install="${_pkgname}.install"
+makedeps=('curl' 'perl')
+depends=(
+	'python2' 'glibc' 'glib2' 'gcc-libs-multilib' 'pcre' 'zlib'
+	'libssh2' 'libnghttp2' 'libpsl' 'libxcb' 'icu' 'keyutils'
+	'libxext' 'libx11' 'libglvnd' 'krb5' 'e2fsprogs' 'libffi'
+	'libxau' 'libxdmcp' 'libcurl-compat' 'openssl-1.0'
+)
 # https://binary.ninja/recover/
 source=("file://BinaryNinja-personal.zip"
 		"binaryninja-personal"
