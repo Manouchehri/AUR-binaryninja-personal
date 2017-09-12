@@ -29,6 +29,7 @@ pkgbase = binaryninja-personal
 	depends = libxdmcp
 	depends = libcurl-compat
 	depends = openssl-1.0
+	depends = qt5-base
 	provides = binaryninja
 	conflicts = binaryninja
 	source = file://BinaryNinja-personal.zip
@@ -37,4 +38,3 @@ pkgbase = binaryninja-personal
 	sha256sums = ac2e652f617d5ef8aaa34a5113164f51f3f673c872a635d29c93878a00650bf8
 
 pkgname = binaryninja-personal
-
